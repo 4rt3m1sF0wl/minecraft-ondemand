@@ -88,7 +88,7 @@ do
   netstat -aun | grep :19132 && EDITION="bedrock" && break
   sleep 1
   COUNTER=$(($COUNTER + 1))
-  if [ $COUNTER -gt 600 ] ## server has not been detected as starting within 10 minutes
+  if [ $COUNTER -gt $STARTUPMIN ] ## server has not been detected as starting within $STARTUPMIN minutes
   then
     echo 10 minutes elapsed without a minecraft server listening, terminating.
     zero_service
